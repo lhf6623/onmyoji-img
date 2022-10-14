@@ -1,0 +1,23 @@
+{
+  "name": "reptile",
+  "version": "1.0.0",
+  "description": "# 下载阴阳师官网的壁纸图片",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "node": "node index.js",
+    "nodemon": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/lhf6623/node-reptile.git"
+  }
+}
