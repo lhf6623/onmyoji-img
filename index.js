@@ -10,14 +10,7 @@ const multiple = 5;
 let urlDataArr = [];
 
 // 默认下载全部尺寸的图片
-const IMG_SIZES = [
-  "2732x2048",
-  "2208x1242",
-  "2048x1536",
-  "1920x1080",
-  "1440x900",
-  "1366x768",
-];
+const IMG_SIZES = ["1920x1080"];
 
 /**
  * 创建目录
@@ -85,7 +78,7 @@ const statrtRequest = async (url) => {
       IMG_SIZES.some((size) => url.includes(size))
     ) {
       const size = url.split("/").pop().split(".")[0];
-      const name = url.split("/data/picture/")[1].replace(/[\/\.]/g, "_");
+      const name = url.split("/data/picture/")[1].replace(/[\/\.\?]/g, "_");
       urlDataArr.push({ url, size, name });
     }
   });
