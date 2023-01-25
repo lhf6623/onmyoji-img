@@ -39,7 +39,9 @@ const savedImg = async (imgs) => {
   const _url = `img/${size}/${name}.jpg`;
   if (existsSync(_url)) {
     if (urlDataArr.length) {
-      savedImg(urlDataArr.shift());
+      setTimeout(() => {
+        savedImg(urlDataArr.shift());
+      }, 0);
     } else {
       console.log("下载完毕");
     }
@@ -59,7 +61,9 @@ const savedImg = async (imgs) => {
   } catch (e) {
   } finally {
     if (urlDataArr.length) {
-      savedImg(urlDataArr.shift());
+      setTimeout(() => {
+        savedImg(urlDataArr.shift());
+      }, 0);
     } else {
       console.log("下载完毕");
     }
