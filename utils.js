@@ -14,8 +14,7 @@ export const request = async (url, opt) => {
     get(url, (res) => {
       let { statusCode } = res;
       if (statusCode !== 200) {
-        console.error(new Error(`请求失败。状态码：${statusCode}`));
-        res.resume();
+        res.resume(new Error(`请求失败。状态码：${statusCode}`));
         reject();
         return;
       }

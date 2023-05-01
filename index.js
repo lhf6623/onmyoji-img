@@ -5,12 +5,12 @@ import { request } from "./utils.js";
 const URL = "https://yys.163.com/media/picture.html";
 const BASE_PATH = "https://yys.res.netease.com/";
 // 试试多个请求下载
-const multiple = 5;
+const multiple = 10;
 // 需要下载的图片集合
 let urlDataArr = [];
 
 // 默认下载全部尺寸的图片
-const IMG_SIZES = ["1920x1080"];
+const IMG_SIZES = ["1366x768"];
 
 /**
  * 创建目录
@@ -37,6 +37,7 @@ const savedImg = async (imgs) => {
   if (!imgs) return;
   const { url, size, name } = imgs;
   const _url = `img/${size}/${name}.jpg`;
+
   if (existsSync(_url)) {
     if (urlDataArr.length) {
       setTimeout(() => {
@@ -55,10 +56,11 @@ const savedImg = async (imgs) => {
     const img = Buffer.concat(imgBuf, len);
 
     const stream = createWriteStream(_url);
-    stream.write(img);
-    stream.close();
+    stream.end(img);
+
     console.log(`[${name}]文件下载完毕，剩余[${urlDataArr.length}]\n`);
   } catch (e) {
+    console.log(`🚀 ~ e:`, e);
   } finally {
     if (urlDataArr.length) {
       setTimeout(() => {
